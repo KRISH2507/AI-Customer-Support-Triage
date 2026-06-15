@@ -1,0 +1,252 @@
+[
+  {
+    "ticket_id": "TKT-001",
+    "subject": "Cannot process payment",
+    "body": "I've been trying to update my credit card information for the past hour but the payment page keeps showing an error. My subscription is about to expire and I don't want to lose access."
+  },
+  {
+    "ticket_id": "TKT-002",
+    "subject": "Dashboard not loading",
+    "body": "When I try to access my dashboard, I just see a blank white screen. I've tried multiple browsers and cleared my cache but nothing works. This started happening after your latest update."
+  },
+  {
+    "ticket_id": "TKT-003",
+    "subject": "Forgot my password",
+    "body": "I can't remember my password and the reset email isn't arriving in my inbox. I've checked spam folder as well. Please help me regain access to my account."
+  },
+  {
+    "ticket_id": "TKT-004",
+    "subject": "Feature request: Dark mode",
+    "body": "Would love to see a dark mode option added to the application. I work late hours and the bright interface is straining my eyes. Many other tools have this feature now."
+  },
+  {
+    "ticket_id": "TKT-005",
+    "subject": "Charged twice this month",
+    "body": "I noticed two charges on my credit card statement for this month's subscription. Can you please refund the duplicate charge? Transaction IDs: TXN123456 and TXN123457"
+  },
+  {
+    "ticket_id": "TKT-006",
+    "subject": "API returning 500 errors",
+    "body": "Our integration has been receiving 500 internal server errors from your API endpoint /v1/users for the past 3 hours. This is blocking our production deployment."
+  },
+  {
+    "ticket_id": "TKT-007",
+    "subject": "Export to CSV not working",
+    "body": "When I click the export button to download my data as CSV, nothing happens. No error message, no download. Tried on Chrome and Firefox."
+  },
+  {
+    "ticket_id": "TKT-008",
+    "subject": "Need to update billing address",
+    "body": "I've recently moved and need to update my billing address for tax purposes. How can I change this in my account settings?"
+  },
+  {
+    "ticket_id": "TKT-009",
+    "subject": "Request: Slack integration",
+    "body": "It would be amazing if you could integrate with Slack so we can receive notifications directly in our workspace channels. This would improve our team's workflow significantly."
+  },
+  {
+    "ticket_id": "TKT-010",
+    "subject": "Mobile app crashes on startup",
+    "body": "The iOS app crashes immediately after opening. I'm on iPhone 14 with iOS 17.2. Tried reinstalling but same issue. App version 2.3.1"
+  },
+  {
+    "ticket_id": "TKT-011",
+    "subject": "Cannot add team members",
+    "body": "Getting an error 'Maximum users reached' when trying to add a new team member, but I'm on the Business plan which allows 20 users and I only have 12."
+  },
+  {
+    "ticket_id": "TKT-012",
+    "subject": "Requesting invoice for last month",
+    "body": "I need a detailed invoice for November's charges for our accounting department. Can you send it to accounting@company.com?"
+  },
+  {
+    "ticket_id": "TKT-013",
+    "subject": "Data not syncing across devices",
+    "body": "Changes I make on my desktop don't appear on my mobile app even after waiting several hours. The sync feature seems broken."
+  },
+  {
+    "ticket_id": "TKT-014",
+    "subject": "Suggestion: Keyboard shortcuts",
+    "body": "As a power user, I'd love to have keyboard shortcuts for common actions like creating new items, searching, and navigating between sections. This would speed up my workflow."
+  },
+  {
+    "ticket_id": "TKT-015",
+    "subject": "SSL certificate error",
+    "body": "Getting a security warning about an invalid SSL certificate when accessing app.yoursite.com. Browser says the certificate expired 2 days ago."
+  },
+  {
+    "ticket_id": "TKT-016",
+    "subject": "Downgrade my subscription",
+    "body": "I'd like to downgrade from Pro to Basic plan. What happens to my data and when will the change take effect?"
+  },
+  {
+    "ticket_id": "TKT-017",
+    "subject": "Email notifications not arriving",
+    "body": "I've enabled email notifications in settings but I'm not receiving any emails. My email is correct and I've checked spam folder."
+  },
+  {
+    "ticket_id": "TKT-018",
+    "subject": "Request: API rate limit increase",
+    "body": "Our application is growing and we're hitting the API rate limit of 1000 requests/hour. Can we get this increased to 5000 for our use case?"
+  },
+  {
+    "ticket_id": "TKT-019",
+    "subject": "Search function returning wrong results",
+    "body": "When I search for specific terms, I get completely unrelated results. The search used to work fine but seems broken after the latest update."
+  },
+  {
+    "ticket_id": "TKT-020",
+    "subject": "Annual plan pricing question",
+    "body": "What's the discount if I switch from monthly to annual billing? Also, will I get a prorated refund for the remaining days of my current month?"
+  },
+  {
+    "ticket_id": "TKT-021",
+    "subject": "File upload fails for large files",
+    "body": "I can't upload files larger than 10MB. The upload starts but then fails with a timeout error. My plan says I can upload up to 100MB files."
+  },
+  {
+    "ticket_id": "TKT-022",
+    "subject": "Two-factor authentication not working",
+    "body": "I enabled 2FA but now I can't log in. The code from my authenticator app is being rejected as invalid. I'm locked out of my account."
+  },
+  {
+    "ticket_id": "TKT-023",
+    "subject": "Feature idea: Templates",
+    "body": "Would be super helpful to have templates for common use cases so we don't have to set up the same configuration repeatedly."
+  },
+  {
+    "ticket_id": "TKT-024",
+    "subject": "Webhook not triggering",
+    "body": "I've configured a webhook URL but it's not receiving any events. Tested the endpoint separately and it works fine. Webhook ID: WHK-78945"
+  },
+  {
+    "ticket_id": "TKT-025",
+    "subject": "Cancel subscription and delete account",
+    "body": "I need to cancel my subscription and have all my data deleted per GDPR. Please confirm when this is completed."
+  },
+  {
+    "ticket_id": "TKT-026",
+    "subject": "UI elements overlapping on mobile",
+    "body": "On my Android phone, the buttons and text are overlapping making it impossible to use the app. Screenshots attached. Using Samsung Galaxy S22."
+  },
+  {
+    "ticket_id": "TKT-027",
+    "subject": "Timezone incorrect in reports",
+    "body": "All my reports are showing times in UTC but my account is set to EST. The timestamps are off by 5 hours."
+  },
+  {
+    "ticket_id": "TKT-028",
+    "subject": "Student discount inquiry",
+    "body": "Do you offer student discounts? I'm currently enrolled full-time and would love to use your service for my coursework."
+  },
+  {
+    "ticket_id": "TKT-029",
+    "subject": "Request: Batch operations",
+    "body": "Need ability to perform actions on multiple items at once instead of one by one. This would save so much time for bulk updates."
+  },
+  {
+    "ticket_id": "TKT-030",
+    "subject": "Login stuck in infinite loop",
+    "body": "After entering credentials, the login page just reloads instead of taking me to dashboard. Happens on both desktop and mobile."
+  },
+  {
+    "ticket_id": "TKT-031",
+    "subject": "Character encoding issue",
+    "body": "Special characters and emojis are showing as question marks or boxes. Tried different browsers. This breaks our internationalization."
+  },
+  {
+    "ticket_id": "TKT-032",
+    "subject": "Refund request",
+    "body": "I was charged for the Pro plan but I never upgraded. I only wanted the Basic plan. Please refund the difference."
+  },
+  {
+    "ticket_id": "TKT-033",
+    "subject": "PDF export has formatting issues",
+    "body": "When exporting reports to PDF, the tables are cut off and images don't appear. The HTML version looks fine."
+  },
+  {
+    "ticket_id": "TKT-034",
+    "subject": "Permission settings not saving",
+    "body": "I set specific permissions for a team member but they reset back to default after a few hours. Happened three times now."
+  },
+  {
+    "ticket_id": "TKT-035",
+    "subject": "Enhancement: Google Calendar integration",
+    "body": "Would be fantastic to sync events with Google Calendar. Many competitors have this and it's a key feature we need."
+  },
+  {
+    "ticket_id": "TKT-036",
+    "subject": "Cannot delete my account",
+    "body": "There's no option in settings to delete my account. I no longer need the service and want my data removed."
+  },
+  {
+    "ticket_id": "TKT-037",
+    "subject": "Database connection timeout",
+    "body": "Keep getting 'database connection timeout' errors when loading large datasets. This makes the platform unusable for our needs."
+  },
+  {
+    "ticket_id": "TKT-038",
+    "subject": "Enterprise plan pricing",
+    "body": "Can you send me information about enterprise pricing for 100+ users? Also need details on SLA and support options."
+  },
+  {
+    "ticket_id": "TKT-039",
+    "subject": "Sorting not working correctly",
+    "body": "When I click to sort by date, items appear in random order. Ascending and descending both show the same incorrect order."
+  },
+  {
+    "ticket_id": "TKT-040",
+    "subject": "Feature request: Multi-language support",
+    "body": "Please add support for Spanish and French. Our team is international and this would help adoption significantly."
+  },
+  {
+    "ticket_id": "TKT-041",
+    "subject": "Payment method declined",
+    "body": "My payment method was declined but the card is valid and has sufficient funds. Tried a different card and same issue."
+  },
+  {
+    "ticket_id": "TKT-042",
+    "subject": "Comments not posting",
+    "body": "When I try to add comments on items, I see a loading spinner but the comment never appears. No error message shown."
+  },
+  {
+    "ticket_id": "TKT-043",
+    "subject": "Change account owner",
+    "body": "I need to transfer account ownership to a colleague. How can I do this without losing our data and settings?"
+  },
+  {
+    "ticket_id": "TKT-044",
+    "subject": "Request: REST API documentation",
+    "body": "Is there comprehensive API documentation available? I can't find detailed info on all available endpoints and parameters."
+  },
+  {
+    "ticket_id": "TKT-045",
+    "subject": "Charts not rendering",
+    "body": "The analytics dashboard shows blank spaces where charts should be. Console shows JavaScript errors related to chart library."
+  },
+  {
+    "ticket_id": "TKT-046",
+    "subject": "Trial extension request",
+    "body": "My 14-day trial is ending tomorrow but I need a few more days to properly evaluate for our team of 50. Can you extend it?"
+  },
+  {
+    "ticket_id": "TKT-047",
+    "subject": "Duplicate entries appearing",
+    "body": "I'm seeing duplicate entries of the same items in my list. When I delete one, both disappear. Database sync issue?"
+  },
+  {
+    "ticket_id": "TKT-048",
+    "subject": "Idea: Version history",
+    "body": "Would be great to have version history so we can see previous versions of items and restore them if needed. Like Google Docs."
+  },
+  {
+    "ticket_id": "TKT-049",
+    "subject": "CORS error in API",
+    "body": "Getting CORS policy errors when calling your API from our frontend. Tried adding headers but still blocked. API endpoint: /v1/data"
+  },
+  {
+    "ticket_id": "TKT-050",
+    "subject": "Tax exemption certificate",
+    "body": "We're a non-profit organization. How do we submit our tax exemption certificate to avoid being charged sales tax?"
+  }
+]
