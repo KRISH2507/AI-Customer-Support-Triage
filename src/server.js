@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const triageRoutes = require('./routes/triage.routes');
+const { initializeDatabase } = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,7 +23,13 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-  console.log(`Health check: http://localhost:${PORT}/health`);
+// Initialize database and start server
+initializeDatabase().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
+  });
+}).catch(err => {
+  console.error('Failed to initialize database:', err);
+  process.exit(1);
 });

@@ -16,7 +16,7 @@ An intelligent customer support ticket triage system powered by Anthropic's Clau
 ## Tech Stack
 
 - **Node.js** with Express.js
-- **SQLite** with better-sqlite3
+- **SQLite** with sql.js (pure JavaScript implementation, no native dependencies)
 - **Anthropic Claude API** (Claude 3.5 Sonnet)
 - **dotenv** for environment configuration
 

@@ -1,5 +1,5 @@
 const Anthropic = require('@anthropic-ai/sdk');
-const db = require('../config/db');
+const { getDb, saveDatabase } = require('../config/db');
 const fs = require('fs');
 const path = require('path');
 
@@ -56,23 +56,15 @@ Respond with ONLY a JSON array matching this structure:
     const tokensUsed = message.usage.input_tokens + message.usage.output_tokens;
 
     // Store results in database
-    const insertStmt = db.prepare(`
-      INSERT INTO triage_results (ticket_id, subject, body, category, priority, confidence, processing_time, tokens_used)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `);
-
+    const db = getDb();
     const results = tickets.map((ticket, index) => {
       const classification = classifications[index];
       
-      insertStmt.run(
-        ticket.ticket_id,
-        ticket.subject,
-        ticket.body,
-        classification.category,
-        classification.priority,
-        classification.confidence,
-        processingTime,
-        tokensUsed
+      db.run(
+        `INSERT INTO triage_results (ticket_id, subject, body, category, priority, confidence, processing_time, tokens_used)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [ticket.ticket_id, ticket.subject, ticket.body, classification.category, classification.priority, 
+         classification.confidence, processingTime, tokensUsed]
       );
 
       return {
@@ -85,11 +77,13 @@ Respond with ONLY a JSON array matching this structure:
     });
 
     // Store batch stats
-    const batchStmt = db.prepare(`
-      INSERT INTO batch_stats (tickets_processed, total_processing_time, total_tokens_used)
-      VALUES (?, ?, ?)
-    `);
-    batchStmt.run(tickets.length, processingTime, tokensUsed);
+    db.run(
+      `INSERT INTO batch_stats (tickets_processed, total_processing_time, total_tokens_used)
+       VALUES (?, ?, ?)`,
+      [tickets.length, processingTime, tokensUsed]
+    );
+    
+    saveDatabase();
 
     // Save to JSON file
     const outputPath = path.join(__dirname, '../../triage_results.json');
@@ -118,24 +112,34 @@ Respond with ONLY a JSON array matching this structure:
 
 function getStats() {
   try {
-    const stats = db.prepare(`
+    const db = getDb();
+    
+    const statsResult = db.exec(`
       SELECT 
         SUM(tickets_processed) as total_tickets,
         SUM(total_processing_time) as total_time,
         SUM(total_tokens_used) as total_tokens
       FROM batch_stats
-    `).get();
+    `);
+    
+    const stats = statsResult[0] && statsResult[0].values[0] ? {
+      total_tickets: statsResult[0].values[0][0],
+      total_time: statsResult[0].values[0][1],
+      total_tokens: statsResult[0].values[0][2]
+    } : { total_tickets: 0, total_time: 0, total_tokens: 0 };
 
-    const categoryDist = db.prepare(`
+    const categoryDistResult = db.exec(`
       SELECT category, COUNT(*) as count
       FROM triage_results
       GROUP BY category
-    `).all();
+    `);
 
     const distribution = {};
-    categoryDist.forEach(row => {
-      distribution[row.category] = row.count;
-    });
+    if (categoryDistResult[0]) {
+      categoryDistResult[0].values.forEach(row => {
+        distribution[row[0]] = row[1];
+      });
+    }
 
     return {
       tickets_processed: stats.total_tickets || 0,

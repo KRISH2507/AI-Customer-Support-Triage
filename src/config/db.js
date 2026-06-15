@@ -1,12 +1,26 @@
-const Database = require('better-sqlite3');
+const initSqlJs = require('sql.js');
+const fs = require('fs');
 const path = require('path');
 
 const dbPath = process.env.DATABASE_PATH || path.join(__dirname, '../../triage.sqlite');
-const db = new Database(dbPath);
 
-// Initialize database schema
-function initializeDatabase() {
-  db.exec(`
+let db;
+let SQL;
+
+// Initialize database
+async function initializeDatabase() {
+  SQL = await initSqlJs();
+  
+  // Load existing database or create new
+  if (fs.existsSync(dbPath)) {
+    const buffer = fs.readFileSync(dbPath);
+    db = new SQL.Database(buffer);
+  } else {
+    db = new SQL.Database();
+  }
+
+  // Create tables
+  db.run(`
     CREATE TABLE IF NOT EXISTS triage_results (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       ticket_id TEXT NOT NULL UNIQUE,
@@ -19,7 +33,9 @@ function initializeDatabase() {
       tokens_used INTEGER,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
+  `);
 
+  db.run(`
     CREATE TABLE IF NOT EXISTS feedback (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       triage_id INTEGER NOT NULL,
@@ -31,7 +47,9 @@ function initializeDatabase() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (triage_id) REFERENCES triage_results(id)
     );
+  `);
 
+  db.run(`
     CREATE TABLE IF NOT EXISTS batch_stats (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       tickets_processed INTEGER NOT NULL,
@@ -41,10 +59,27 @@ function initializeDatabase() {
     );
   `);
 
+  // Save to file
+  saveDatabase();
+
   console.log('Database initialized successfully');
 }
 
-// Initialize on first run
-initializeDatabase();
+function saveDatabase() {
+  const data = db.export();
+  const buffer = Buffer.from(data);
+  fs.writeFileSync(dbPath, buffer);
+}
 
-module.exports = db;
+function getDb() {
+  if (!db) {
+    throw new Error('Database not initialized. Call initializeDatabase() first.');
+  }
+  return db;
+}
+
+module.exports = {
+  initializeDatabase,
+  getDb,
+  saveDatabase
+};
